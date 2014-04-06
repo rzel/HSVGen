@@ -1,4 +1,5 @@
-﻿#H1 **HSVGEN ALGORITHM**
+** HSVGEN ALGORITHM
+
 
 HSVGEN is an algorithm to convert bitmap to scalable vector graphics (SVG) using a hierarchical approach. 
 The algorithm comprises of following stages :
