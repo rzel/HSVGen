@@ -1,9 +1,9 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/hsvgen.dir/hsvgen.cpp.o"
-  "CMakeFiles/hsvgen.dir/preprocess.cpp.o"
-  "CMakeFiles/hsvgen.dir/buildTree.cpp.o"
-  "hsvgen.pdb"
-  "hsvgen"
+  "CMakeFiles/hsvgen.dir/src/hsvgen.cpp.o"
+  "CMakeFiles/hsvgen.dir/src/preprocess.cpp.o"
+  "CMakeFiles/hsvgen.dir/src/buildTree.cpp.o"
+  "bin/hsvgen.pdb"
+  "bin/hsvgen"
 )
 
 # Per-language clean rules from dependency scanning.

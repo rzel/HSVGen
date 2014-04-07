@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project( hsvgen )
 find_package( OpenCV REQUIRED )
-add_executable( hsvgen hsvgen.cpp preprocess.cpp buildTree.cpp)
+include_directories($(HSVGEN_SOURCE_DIR)/inc)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+add_executable( hsvgen src/hsvgen.cpp src/preprocess.cpp src/buildTree.cpp)
 target_link_libraries( hsvgen ${OpenCV_LIBS} )

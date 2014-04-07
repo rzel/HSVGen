@@ -1,7 +1,7 @@
 #include <stdlib.h>
-#include "buildTree.h"
-#include "preprocess.h"
 #include <stdio.h>
+#include "../inc/buildTree.h"
+#include "../inc/preprocess.h"
 
 struct Node
 {

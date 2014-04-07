@@ -111,77 +111,77 @@ hsvgen/fast:
 	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/build
 .PHONY : hsvgen/fast
 
-buildTree.o: buildTree.cpp.o
-.PHONY : buildTree.o
+src/buildTree.o: src/buildTree.cpp.o
+.PHONY : src/buildTree.o
 
 # target to build an object file
-buildTree.cpp.o:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/buildTree.cpp.o
-.PHONY : buildTree.cpp.o
+src/buildTree.cpp.o:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/buildTree.cpp.o
+.PHONY : src/buildTree.cpp.o
 
-buildTree.i: buildTree.cpp.i
-.PHONY : buildTree.i
+src/buildTree.i: src/buildTree.cpp.i
+.PHONY : src/buildTree.i
 
 # target to preprocess a source file
-buildTree.cpp.i:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/buildTree.cpp.i
-.PHONY : buildTree.cpp.i
+src/buildTree.cpp.i:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/buildTree.cpp.i
+.PHONY : src/buildTree.cpp.i
 
-buildTree.s: buildTree.cpp.s
-.PHONY : buildTree.s
+src/buildTree.s: src/buildTree.cpp.s
+.PHONY : src/buildTree.s
 
 # target to generate assembly for a file
-buildTree.cpp.s:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/buildTree.cpp.s
-.PHONY : buildTree.cpp.s
+src/buildTree.cpp.s:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/buildTree.cpp.s
+.PHONY : src/buildTree.cpp.s
 
-hsvgen.o: hsvgen.cpp.o
-.PHONY : hsvgen.o
+src/hsvgen.o: src/hsvgen.cpp.o
+.PHONY : src/hsvgen.o
 
 # target to build an object file
-hsvgen.cpp.o:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/hsvgen.cpp.o
-.PHONY : hsvgen.cpp.o
+src/hsvgen.cpp.o:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/hsvgen.cpp.o
+.PHONY : src/hsvgen.cpp.o
 
-hsvgen.i: hsvgen.cpp.i
-.PHONY : hsvgen.i
+src/hsvgen.i: src/hsvgen.cpp.i
+.PHONY : src/hsvgen.i
 
 # target to preprocess a source file
-hsvgen.cpp.i:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/hsvgen.cpp.i
-.PHONY : hsvgen.cpp.i
+src/hsvgen.cpp.i:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/hsvgen.cpp.i
+.PHONY : src/hsvgen.cpp.i
 
-hsvgen.s: hsvgen.cpp.s
-.PHONY : hsvgen.s
+src/hsvgen.s: src/hsvgen.cpp.s
+.PHONY : src/hsvgen.s
 
 # target to generate assembly for a file
-hsvgen.cpp.s:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/hsvgen.cpp.s
-.PHONY : hsvgen.cpp.s
+src/hsvgen.cpp.s:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/hsvgen.cpp.s
+.PHONY : src/hsvgen.cpp.s
 
-preprocess.o: preprocess.cpp.o
-.PHONY : preprocess.o
+src/preprocess.o: src/preprocess.cpp.o
+.PHONY : src/preprocess.o
 
 # target to build an object file
-preprocess.cpp.o:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/preprocess.cpp.o
-.PHONY : preprocess.cpp.o
+src/preprocess.cpp.o:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/preprocess.cpp.o
+.PHONY : src/preprocess.cpp.o
 
-preprocess.i: preprocess.cpp.i
-.PHONY : preprocess.i
+src/preprocess.i: src/preprocess.cpp.i
+.PHONY : src/preprocess.i
 
 # target to preprocess a source file
-preprocess.cpp.i:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/preprocess.cpp.i
-.PHONY : preprocess.cpp.i
+src/preprocess.cpp.i:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/preprocess.cpp.i
+.PHONY : src/preprocess.cpp.i
 
-preprocess.s: preprocess.cpp.s
-.PHONY : preprocess.s
+src/preprocess.s: src/preprocess.cpp.s
+.PHONY : src/preprocess.s
 
 # target to generate assembly for a file
-preprocess.cpp.s:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/preprocess.cpp.s
-.PHONY : preprocess.cpp.s
+src/preprocess.cpp.s:
+	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/preprocess.cpp.s
+.PHONY : src/preprocess.cpp.s
 
 # Help Target
 help:
@@ -192,15 +192,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... hsvgen"
 	@echo "... rebuild_cache"
-	@echo "... buildTree.o"
-	@echo "... buildTree.i"
-	@echo "... buildTree.s"
-	@echo "... hsvgen.o"
-	@echo "... hsvgen.i"
-	@echo "... hsvgen.s"
-	@echo "... preprocess.o"
-	@echo "... preprocess.i"
-	@echo "... preprocess.s"
+	@echo "... src/buildTree.o"
+	@echo "... src/buildTree.i"
+	@echo "... src/buildTree.s"
+	@echo "... src/hsvgen.o"
+	@echo "... src/hsvgen.i"
+	@echo "... src/hsvgen.s"
+	@echo "... src/preprocess.o"
+	@echo "... src/preprocess.i"
+	@echo "... src/preprocess.s"
 .PHONY : help
 
 
