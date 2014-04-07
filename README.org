@@ -1,4 +1,4 @@
-﻿** HSVGen Algorithm: 
+﻿* HSVGen Algorithm
 
 HSVGEN is an algorithm to convert bitmap to scalable vector graphics (SVG) using a hierarchical approach. 
 The algorithm comprises of following stages :
@@ -59,6 +59,14 @@ We *alternate between SubStage 2 and Substage 3 until the contour is stabilized*
 ***** Conversion of the segments in the tree to a hierarchical SVG image.
 - The final segment will be our output.
 
+*** Pictorial Representation of Stage 1 (similar to Stage 3):
+[[./doc/img/region_merge.png]]
+*Note*:
+- The boundary of the segments will not be smooth, instead there will be square pixels on the boundary.
+- Boundary will get smoother in Stage 2::Substage 3.
+
+*** Pictorial Representation of Stage 2:
+[[./doc/img/stage2.png]]
 
 *** References:
 - Darren MacDonald. Image segment processing for analysis and visualization. Master's thesis. SITE, University of Ottawa. Aug 2008.
