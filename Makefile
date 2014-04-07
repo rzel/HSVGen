@@ -9,7 +9,7 @@ default_target: all
 # Special targets provided by cmake.
 
 # Disable implicit rules so canonical targets will work.
-.SUFFIXES:
+.SUFFIXES: 
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
 SUFFIXES =

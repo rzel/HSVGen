@@ -3,7 +3,7 @@
 
 struct Node;
 
-struct cie_lab
+struct cie_lab 
 {
 	double a;
 	double b;

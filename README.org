@@ -9,7 +9,7 @@ The algorithm comprises of following stages :
 - Conversion of the segments in the tree to a hierarchical SVG image.
 
 Input: Bitmap Image.
-Output: SVG.
+Output: SVG. 
 
 *** Stage 1: 
 ***** Initial fine-level segmentation.

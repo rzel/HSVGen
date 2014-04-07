@@ -1,5 +1,5 @@
 #ifndef BUILDTREE_H__
-#define BUILDTREE_H__
+#define BUILDTREE_H__ 
 
 struct Node;
 

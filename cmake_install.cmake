@@ -1,6 +1,6 @@
 # Install script for directory: /home/dhruv/repos/hsvgen
 
-# Set the install prefix
+# Set the install prefix 
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
   SET(CMAKE_INSTALL_PREFIX "/usr/local")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)

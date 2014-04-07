@@ -6,7 +6,7 @@ struct Node
 	int id;
 	Node *parent;
 	Node *leftChild;
-	Node *rightChild;
+	Node *rightChild; 
 	double L;
 	double ab;
 	double size;
