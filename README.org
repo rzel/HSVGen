@@ -1,4 +1,5 @@
-﻿** HSVGen Algorithm
+﻿** HSVGen Algorithm: 
+
 HSVGEN is an algorithm to convert bitmap to scalable vector graphics (SVG) using a hierarchical approach. 
 The algorithm comprises of following stages :
 - Initial fine-level segmentation.
@@ -6,63 +7,64 @@ The algorithm comprises of following stages :
 - Merging of the segments with the refined contours into a hierarchical tree of image segments.
 - Conversion of the segments in the tree to a hierarchical SVG image.
 
-Input : Bitmap Image.
+Input: Bitmap Image.
+Output: SVG.
 
-*** Stage 1 : 
-***** Initial fine-level segmentation :
-- Let *N* be the number of the segments provided by the user before the start of the algorithm. 
-- To automate the process of deciding the number of segments, we can use some sort of Heuristic or some prebuilt ML library (but at this point, let the number of segments is provided by the user).
-- Fine Level segmentation using region merging algorithm which is described below: 
-**** Region Merging
-- input: Over segmentation of the Bitmap (say the set of all pixels be P)
-- Set the leaves of the binary tree T to P, S=P(S is the set containing segmentations)
-- while |S| > 1
-- choose distinct region S1 and S2 such that argmin(S1,S2) {C(Ω,S1,S2)}
-- S = S / {S1,S2} ∪ {S1 ∪ S2}
-- add {S1 ∪ S2} to T as parent of S1 and S2
-- output: T
+*** Stage 1: 
+***** Initial fine-level segmentation.
+*N* be the *number of the segments provided by the user*. 
+Stage 1 involves the use of the following algorithm:
 
-*C(Ω,S1,S2)* = Cost of merging the two segments which can be evaluated using the inverse of the Function q described in *[1](P 15)*.
-Using the above algorithm we’ll get the segmentations in the set S which are in fact, all the nodes at the top level in the tree T.
+**** Region Merging Algorithm
+- *input*: Over segmentation of the Bitmap (say the set of all pixels be P).
+- Set the leaves of the binary tree *T* to *P*, *S=P*(*S* is the set of segmentations).
+- while |S| > N.
+- choose distinct region *S1* and *S2* such that *argmin(S1,S2) {C(Ω,S1,S2)}*.
+- *S = S / {S1,S2} ∪ {S1 ∪ S2}*.
+- add *{S1 ∪ S2}* to *T* as parent of *S1* and *S2*.
+- *output*: *T*.
 
-*** Stage 2 : 
-***** Refinement of the linear contours of the fine level segmentation to sub-pixel precision and simplification :
+*C(Ω,S1,S2)* = *Cost of merging* two segments which is the inverse of the cost q described in *[1](P 15)*.
+Set *S* contatins the final segments.
+
+*** Stage 2: 
+***** Refinement of the linear contours of the fine level segmentation to sub-pixel precision and simplification.
 This stage involves three steps:
 - A pixel-based refinement
 - An active contour based boundary location method 
 - A boundary simplification step
 	
-**** SubStage 1 : Pixel-based refinement :
-- The pixel-based refinement is a preprocessing step which reassigns pixels on region boundaries in the segmentation produced by region merging. 
+**** SubStage 1:
+****** Pixel-based refinement.
+- The pixel-based refinement is a preprocessing step which *reassigns pixels on region boundaries* for the segments produced by region merging. 
 - This minimizes artifacts created by the sequential nature of the region merging algorithm.
-- In general terms, we need to assign the boundary of each segmentation to the contour of that segmentation.
 
-**** SubStage 2 : 
-****** Active contour based boundary location method :
-- Using the *Active Contour Model*, also called **snakes**, as the framework to refine region boundaries, we use Gradient-descent Minimization approach to minimize the energy associated with the contour. 
-- Following is the link to the implementation which is very clearly described. Moreover, the prerequisite to the implementation is also described on the page. 
+**** SubStage 2: 
+****** Active contour based boundary location method.
+- Using the *Active Contour Model*, also called *snakes*, as the framework to refine region boundaries, we use Gradient-descent Minimization approach to minimize the energy associated with the contour. 
+- The implementation of the framework can be found [[http://en.wikipedia.org/wiki/Active_contour_model#Implementation][here]].
 - Once we have localized our contour, we move to boundary simplification substage.
 	
-**** SubStage 3 :
-****** Boundary simplification step :
-- The boundary simplification step performs edge collapses to adjust the representation for the smoother boundary produced by the active contours.We adopt the quadric-based simplification method as described in *[2]* to decide if an edge may be collapsed without introducing a large amount of approximation error. *The approximation error threshold controls the details of the contour and in our application the path complexity of the produced SVG image*. [The step still needs more elaboration].
+**** SubStage 3:
+****** Boundary simplification step.
+- The boundary simplification step *performs edge collapses* to adjust the representation for the smoother boundary produced by the active contours.We adopt the *quadric-based simplification method* as described in *[2]* to decide if an edge may be collapsed without introducing a large amount of approximation error. *The approximation error threshold controls the details of the contour and in our application the path complexity of the produced SVG image*. [The step still needs more elaboration].
 
-HSVGen algorithm says that we need to *alternate between SubStage 2 and Substage 3 until the contour is stabilized*, that is, points on the contour converges.
+We *alternate between SubStage 2 and Substage 3 until the contour is stabilized*, that is, points on the contour converges.
 
-*** Stage 3 : 
-***** Merging of the segments with the refined contours into a hierarchical tree of image segments :
-- Again use the Region Merging algorithm described in Stage 1 to merge the segments to a single image which is in fact the root of the tree.
+*** Stage 3: 
+***** Merging of the segments with the refined contours into a hierarchical tree of image segments.
+- Again we use the Region Merging algorithm described in Stage 1 to merge the segments to a single image which is in fact the root of the tree.
 
-*** Stage 4 :
+*** Stage 4:
 ***** Conversion of the segments in the tree to a hierarchical SVG image.
--The root that we have got in the stage 3 represents the root of the tree and has to be given as the output after merging them down on a 2D array type data structure.
+- The final segment will be our output.
 
 
 *** References:
-1.Darren MacDonald. Image segment processing for analysis and visualization. Master's thesis. SITE, University of Ottawa. Aug 2008.
-2.Michael Garland and Paul S. Heckbert. Surface simplification using quadric error metrics. 209--216. SIGGRAPH. . 1997.
+- Darren MacDonald. Image segment processing for analysis and visualization. Master's thesis. SITE, University of Ottawa. Aug 2008.
+- Michael Garland and Paul S. Heckbert. Surface simplification using quadric error metrics. 209--216. SIGGRAPH. . 1997.
 
 *** Note:
--References can be found in doc.
--Blueprint of the implementation can also be found in doc.
--For more info on HSVGen, visit : http://www.svgopen.org/2008/papers/42-Bitmap_to_Vector_Conversion_for_Multilevel_Analysis_and_Visualization/
+- References can be found in doc.
+- Blueprint of the implementation can also be found in doc.
+- For more info on HSVGen, visit : [[http://www.svgopen.org/2008/papers/42-Bitmap_to_Vector_Conversion_for_Multilevel_Analysis_and_Visualization/][this link]]
