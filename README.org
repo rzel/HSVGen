@@ -1,7 +1,8 @@
-﻿* HSVGen Algorithm
+﻿
+* HSVGen Algorithm
 ------------------------
 
-HSVGEN is an algorithm to convert bitmap to scalable vector graphics (SVG) using a hierarchical approach. 
+HSVGen is an algorithm to convert bitmap to scalable vector graphics (SVG) using a hierarchical approach. 
 The algorithm comprises of following stages :
 - Initial fine-level segmentation.
 - Refinement of the linear contours of the fine level segmentation to sub-pixel precision and simplification.
