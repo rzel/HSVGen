@@ -45,6 +45,7 @@ void buildTree(struct Node* node,
 	*/
 	/* 
 	We should return the roots/Nodes at top level of the tree 
-	// Hence, that has to be rectified in the code
+	Hence, that has to be rectified in the code
+	*/
 
 }
