@@ -1,4 +1,4 @@
-﻿In progres..
+﻿In progress..
 * HSVGen Algorithm
 
 HSVGen is an algorithm to convert bitmap to scalable vector graphics (SVG) using a hierarchical approach. 
