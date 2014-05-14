@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <float.h>
 #include <vector>
-#include <algorithm>
 
 struct Node
 {
@@ -175,70 +174,67 @@ void buildTree(struct Node* node,
 			   int numPixels,
 			   int numSegments)
 {
+	struct Heap* input = (struct Heap*) malloc(sizeof(Heap));
 
+	long int counter = 0;
+	for(long int  i = 0; i < numPixels; ++i)
+	{
+		for(long int j = i; j < numPixels; ++j)
+		{
+			Entry* temp = (Entry *) malloc(sizeof(Entry));
+			temp->first = i;
+			temp->second = j;
+			temp->costInv = computeCostInv(&node[i], &node[j]);
+			input->array.push_back(temp[0]);
+		}
+	}
+
+	build_max_heap(input);
 
 	long int segmentsNOW = numPixels;
-	long int counter = numPixels;
-	vector<long int> myVector;
 
-	while(segmentsNOW > numSegments)
+	while(segmentsNOW <= numSegments)
 	{
-		int check = 0;
-		long int first;
-		long int second;
-		double minCost;
-		for(long int i = 0; i < counter; ++i)
-		{
-			for(long int j = i + 1; j < counter; ++j)
-			{
-				if(myVector.empty() || !((find(myVector.begin(), myVector.end(), i) != myVector.end()) || (find(myVector.begin(), myVector.end(), j) != myVector.end())))
-				{
-					if(check == 0)
-					{
-						first = i;
-						second = j;
-						minCost = computeCostInv(&node[i], &node[j]);
-						check = 1;
-					}
-					else
-					{
-						if(minCost > computeCostInv(&node[i], &node[j]))
-						{
-							first = i;
-							second = j;
-							minCost = computeCostInv(&node[i], &node[j]);
-						}
-					}
-				}
-			}
-			printf("%ld --- %ld\n", first, second);
-		}
-
-		printf("%ld --- %ld\n", first, second);
-
-		myVector.push_back(first);
-		myVector.push_back(second);
+		Entry* max = heap_extract_max(input);
+		long int f = max->first;
+		long int s = max->second;
 
 		node = (Node*) realloc(node, (counter + 1) * sizeof(Node));
 
-		node[counter].L = (node[first].L + node[second].L) * 0.5;
-		node[counter].ab = (node[first].ab + node[second].ab) * 0.5;
-		node[counter].size = node[first].size + node[second].size;
+		node[counter].L = (node[f].L + node[s].L) * 0.5;
+		node[counter].ab = (node[f].ab + node[s].ab) * 0.5;
+		node[counter].size = node[f].size + node[s].size;
 		node[counter].id = counter;
-		node[counter].leftChild = &node[first];
-		node[counter].rightChild = &node[second];
+		node[counter].leftChild = &node[f];
+		node[counter].rightChild = &node[s];
 		node[counter].parent = NULL;
-		node[first].parent = &node[counter];
-		node[second].parent = &node[counter];
-		node[first].isRoot = 0;
-		node[second].isRoot = 0;
+		node[f].parent = &node[counter];
+		node[s].parent = &node[counter];
+		node[f].isRoot = 0;
+		node[s].isRoot = 0;
 		node[counter].isRoot = 1;
 		node[counter].shape = 0;
+
+		// adding entries
+		for(long int i = 0; i < input->heapSize; ++i)
+		{
+			if(input->array[i].first == f || input->array[i].second == f)
+				max_heap_insert(input, computeCostInv(&node[i], &node[counter]), i, counter);
+		}
+
+		// removing entries
+		for(long int i = 0; i < input->heapSize; ++i)
+		{
+			if(input->array[i].first == f || input->array[i].first == s || input->array[i].second == f || input->array[i].second == s)
+			{
+				input->array.erase(input->array.begin() + i);
+				input->heapSize--;
+			}
+		}
 
 		counter++;
 		segmentsNOW--;
 	}
-
 
 	for(long int i = 0; i < counter; ++i)
 	{
