@@ -1,10 +1,11 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
 #include <opencv2/opencv.hpp> 
 
 struct Node
 {
-	int id;
+	long int id;
 	Node *parent;
 	Node *leftChild;
 	Node *rightChild;
@@ -99,7 +100,7 @@ struct cie_lab* rgbtolab(int R,
 	return lab;
 }
 
-void preprocess(char *inputFilename, struct Node *node, int *numPixels, int *imageRows, int *imageCols)
+void preprocess(char *inputFilename, struct Node **node, long int *numPixels, int *imageRows, int *imageCols)
 {
 
 	// Load image
@@ -113,25 +114,26 @@ void preprocess(char *inputFilename, struct Node *node, int *numPixels, int *ima
 	*numPixels = *imageRows * *imageCols;
 
 	// Allocate Nodes/leaves of the binary tree 
-	node = (struct Node*)malloc(*numPixels * sizeof(struct Node));
+	*node = (struct Node*)malloc(*numPixels * sizeof(struct Node));
 
 	unsigned char *cvPtr = imageRGBA.ptr<unsigned char>(0);
 
 	struct cie_lab *tempLab = (struct cie_lab*)malloc(sizeof(struct cie_lab));
 
 	// Initialize values of node attributes
-	for(int i = 0; i < *numPixels; ++i)
+	for(long int i = 0; i < *numPixels; ++i)
 	{
 		tempLab = rgbtolab((int)cvPtr[4*i], (int)cvPtr[4*i + 1], (int)cvPtr[4*i + 2]);
 
-		node[i].L = tempLab->l;
-		node[i].ab = tempLab->a * tempLab->b;
-		node[i].size = 1;
-		node[i].id = i;
-		node[i].leftChild = NULL;
-		node[i].rightChild = NULL;
-		node[i].parent = NULL;
-		node[i].isRoot = 1;
+		(*node)[i].L = tempLab->l;
+		(*node)[i].ab = tempLab->a * tempLab->b;
+		(*node)[i].size = 1;
+		(*node)[i].id = i;
+		(*node)[i].leftChild = NULL;
+		(*node)[i].rightChild = NULL;
+		(*node)[i].parent = NULL;
+		(*node)[i].isRoot = 1;
+		(*node)[i].shape = 0;
 		// Shape value to be added
 	}
 }

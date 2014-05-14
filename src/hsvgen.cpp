@@ -5,7 +5,7 @@
 
 struct Node
 {
-	int id;
+	long int id;
 	Node *parent;
 	Node *leftChild;
 	Node *rightChild;
@@ -18,8 +18,8 @@ struct Node
 
 
 void preprocess(char *inputFilename,
-			    struct Node *node,
-			    int *numPixels,
+			    struct Node **node,
+			    long int *numPixels,
 			    int *imageRows,
 			    int *imageCols);
 
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	char *output_file;
     char *default_output_file = "output.png";
 	int numSegments;
-	int numPix;
+	long int numPix;
 	int imageRows;
 	int imageCols;
 	struct Node* node;
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	preprocess(input_file, node, &numPix, &imageRows, &imageCols);
+	preprocess(input_file, &node, &numPix, &imageRows, &imageCols);
 
 	buildTree(node, numPix, numSegments);
 	

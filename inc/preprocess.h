@@ -15,8 +15,8 @@ struct cie_lab* rgbtolab(int R,
 						 int B);
 
 void preprocess(char *inputFilename,
-			    struct Node *node,
-			    int *numPixels,
+			    struct Node **node,
+			    long int *numPixels,
 			    int *imageRows,
 			    int *imageCols);
 
