@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dhruv/repos/hsvgen
+CMAKE_SOURCE_DIR = /home/dhruv/repos/hsvgen/trials
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dhruv/repos/hsvgen
+CMAKE_BINARY_DIR = /home/dhruv/repos/hsvgen/trials
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dhruv/repos/hsvgen/CMakeFiles /home/dhruv/repos/hsvgen/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dhruv/repos/hsvgen/trials/CMakeFiles /home/dhruv/repos/hsvgen/trials/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dhruv/repos/hsvgen/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dhruv/repos/hsvgen/trials/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -99,89 +99,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named hsvgen
+# Target rules for targets named trial1
 
 # Build rule for target.
-hsvgen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hsvgen
-.PHONY : hsvgen
+trial1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trial1
+.PHONY : trial1
 
 # fast build rule for target.
-hsvgen/fast:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/build
-.PHONY : hsvgen/fast
+trial1/fast:
+	$(MAKE) -f CMakeFiles/trial1.dir/build.make CMakeFiles/trial1.dir/build
+.PHONY : trial1/fast
 
-src/buildTree.o: src/buildTree.cpp.o
-.PHONY : src/buildTree.o
-
-# target to build an object file
-src/buildTree.cpp.o:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/buildTree.cpp.o
-.PHONY : src/buildTree.cpp.o
-
-src/buildTree.i: src/buildTree.cpp.i
-.PHONY : src/buildTree.i
-
-# target to preprocess a source file
-src/buildTree.cpp.i:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/buildTree.cpp.i
-.PHONY : src/buildTree.cpp.i
-
-src/buildTree.s: src/buildTree.cpp.s
-.PHONY : src/buildTree.s
-
-# target to generate assembly for a file
-src/buildTree.cpp.s:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/buildTree.cpp.s
-.PHONY : src/buildTree.cpp.s
-
-src/hsvgen.o: src/hsvgen.cpp.o
-.PHONY : src/hsvgen.o
+trial1.o: trial1.cpp.o
+.PHONY : trial1.o
 
 # target to build an object file
-src/hsvgen.cpp.o:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/hsvgen.cpp.o
-.PHONY : src/hsvgen.cpp.o
+trial1.cpp.o:
+	$(MAKE) -f CMakeFiles/trial1.dir/build.make CMakeFiles/trial1.dir/trial1.cpp.o
+.PHONY : trial1.cpp.o
 
-src/hsvgen.i: src/hsvgen.cpp.i
-.PHONY : src/hsvgen.i
-
-# target to preprocess a source file
-src/hsvgen.cpp.i:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/hsvgen.cpp.i
-.PHONY : src/hsvgen.cpp.i
-
-src/hsvgen.s: src/hsvgen.cpp.s
-.PHONY : src/hsvgen.s
-
-# target to generate assembly for a file
-src/hsvgen.cpp.s:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/hsvgen.cpp.s
-.PHONY : src/hsvgen.cpp.s
-
-src/preprocess.o: src/preprocess.cpp.o
-.PHONY : src/preprocess.o
-
-# target to build an object file
-src/preprocess.cpp.o:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/preprocess.cpp.o
-.PHONY : src/preprocess.cpp.o
-
-src/preprocess.i: src/preprocess.cpp.i
-.PHONY : src/preprocess.i
+trial1.i: trial1.cpp.i
+.PHONY : trial1.i
 
 # target to preprocess a source file
-src/preprocess.cpp.i:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/preprocess.cpp.i
-.PHONY : src/preprocess.cpp.i
+trial1.cpp.i:
+	$(MAKE) -f CMakeFiles/trial1.dir/build.make CMakeFiles/trial1.dir/trial1.cpp.i
+.PHONY : trial1.cpp.i
 
-src/preprocess.s: src/preprocess.cpp.s
-.PHONY : src/preprocess.s
+trial1.s: trial1.cpp.s
+.PHONY : trial1.s
 
 # target to generate assembly for a file
-src/preprocess.cpp.s:
-	$(MAKE) -f CMakeFiles/hsvgen.dir/build.make CMakeFiles/hsvgen.dir/src/preprocess.cpp.s
-.PHONY : src/preprocess.cpp.s
+trial1.cpp.s:
+	$(MAKE) -f CMakeFiles/trial1.dir/build.make CMakeFiles/trial1.dir/trial1.cpp.s
+.PHONY : trial1.cpp.s
 
 # Help Target
 help:
@@ -190,17 +142,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... hsvgen"
 	@echo "... rebuild_cache"
-	@echo "... src/buildTree.o"
-	@echo "... src/buildTree.i"
-	@echo "... src/buildTree.s"
-	@echo "... src/hsvgen.o"
-	@echo "... src/hsvgen.i"
-	@echo "... src/hsvgen.s"
-	@echo "... src/preprocess.o"
-	@echo "... src/preprocess.i"
-	@echo "... src/preprocess.s"
+	@echo "... trial1"
+	@echo "... trial1.o"
+	@echo "... trial1.i"
+	@echo "... trial1.s"
 .PHONY : help
 
 

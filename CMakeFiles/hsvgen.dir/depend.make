@@ -3,6 +3,8 @@
 
 CMakeFiles/hsvgen.dir/src/buildTree.cpp.o: src/buildTree.cpp
 
+CMakeFiles/hsvgen.dir/src/hsvgen.cpp.o: src/../inc/buildTree.h
+CMakeFiles/hsvgen.dir/src/hsvgen.cpp.o: src/../inc/preprocess.h
 CMakeFiles/hsvgen.dir/src/hsvgen.cpp.o: src/hsvgen.cpp
 
 CMakeFiles/hsvgen.dir/src/preprocess.cpp.o: src/preprocess.cpp

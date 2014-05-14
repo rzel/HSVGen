@@ -6,30 +6,14 @@
 
 #IncludeRegexTransform: 
 
-/home/dhruv/repos/hsvgen/src/../inc/buildTree.h
-
-/home/dhruv/repos/hsvgen/src/../inc/preprocess.h
-
-/home/dhruv/repos/hsvgen/src/buildTree.cpp
-stdlib.h
--
-math.h
--
-
-/home/dhruv/repos/hsvgen/src/hsvgen.cpp
+/home/dhruv/repos/hsvgen/trials/trial1.cpp
 stdlib.h
 -
 stdio.h
 -
-../inc/buildTree.h
-/home/dhruv/repos/hsvgen/src/../inc/buildTree.h
-../inc/preprocess.h
-/home/dhruv/repos/hsvgen/src/../inc/preprocess.h
-
-/home/dhruv/repos/hsvgen/src/preprocess.cpp
-stdlib.h
--
 math.h
+-
+iostream
 -
 opencv2/opencv.hpp
 -
